@@ -11,7 +11,7 @@ Check our RESOURCES.md for some links we think you'll find handy.
 - [ ] Fork this repository
 - [ ] Clone the repo to your own machine
 - [ ] Update the view we created in class to accept a GET parameter are return it to the user
-- [ ] (A step further) Add an `<input>` and let the user submit the string to be displayed
+- [ ] A step further - Add an `<input>` and let the user submit the string to be displayed
 
 When you've completed some or all of the homework please make a Pull Request against this repository. If you submit
 your work before Wednesday evening we'll give you feedback before the next class.
