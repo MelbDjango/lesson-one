@@ -48,8 +48,11 @@ HTTP: Hyper Text Transfer Protocol
 Request and Response
 
 When a user enters a domain in their browser the browser sends a HTTP Request
+
 The HTTP Request traverses the internet until it reached the desired server
+
 The server on the other end responds with a HTTP Response
+
 Our browser transforms the response into the visual representation of the website
 
 ---
@@ -135,6 +138,8 @@ Installing Python
   - Awesome! You've already got Python but you might need to update it
   - Run `python --version` or `python3 --version`
   - Use your package manager to update Python if needed
+    - Ubuntu/Debian: `sudo apt-get install python3.4`
+    - Mac OSX: `brew install python3.4`
 
 - Windows:
   - Head to python.org and download Python 3.4.3
@@ -146,9 +151,23 @@ pip: Installs Python Packages
 
 - Comes with Python 3
 - Install packages with `pip install -U <package-name>`
-  - -U forces pip to install the latest available version
+  - `-U` forces pip to install the latest available version
 - Install a list of packages with `pip install -r <requirements-file>`
 - Update pip with `pip install -U pip`
+
+---
+
+Wait, I don't have pip!
+
+That's okay, there's a nice easy installation script available:
+https://bootstrap.pypa.io/get-pip.py
+
+Download that to a file and then run it with Python 3:
+
+```
+curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
+python3 get-pip.py
+```
 
 ---
 
@@ -161,6 +180,7 @@ Installing virtualenv
 ```
 [sudo] pip install -U virtualenv
 ```
+
 ---
 
 Creating your first virtualenv
@@ -175,13 +195,50 @@ source <my-project-name>/bin/activate
 
 Installing Django
 
+- After all that, installing Django is remarkably easy (just make sure your virtualenv is activated)
+  - `pip install -U Django`
+
+- This will install the latest version of Django and add the `django-admin` command
+
 ---
 
-Picking a text editor
+Creating your first Django project
+
+- Now that we've got Django installed, let's create our first project!
+  - `django-admin startproject <project-name>`
+
+---
+
+Django Project Structure
+
+```
+  timetracker/
+  ├── manage.py
+  └── timetracker
+      ├── __init__.py
+      ├── settings.py
+      ├── urls.py
+      └── wsgi.py
+```
+
+`./timetracker` is the name of your project and the **project workspace**, the `manage.py` file indicates that you're
+at the root of your Django project.
+
+`./timetracker/timetracker` is your **project module**, Django imports your project settings from here.
+
+`./timetracker/manage.py` is a Python script used to manage your Django site.
+
+`./timetracker/settings.py` is where Django loads your project configuration from.
+
+`./timetracker/urls.py` is the default location
+
+---
+
+Pick a text editor
 
 - We're going to use a basic text editor in class
-- Check out atom.io, Sublime Text or Visual Studio Code
-- Avoid fully-blown IDEs for now (PyCharm, JetBrains, Eclipse)
+- Check out atom.io, Sublime Text or Visual Studio Code (or vi / emacs if you're that way inclined)
+- Avoid fully-blown IDEs for now (PyCharm, JetBrains, Eclipse) while we're learning
 
 ---
 
@@ -192,9 +249,3 @@ For now, you'll only need four git commands:
   - git add
   - git commit
   - git push
-
----
-
-Creating your first Django project
-
----
