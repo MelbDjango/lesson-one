@@ -56,3 +56,4 @@ docs/_build/
 target/
 
 
+timetracker/db.sqlite3
