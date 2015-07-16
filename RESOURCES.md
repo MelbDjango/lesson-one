@@ -1,5 +1,8 @@
 # MelbDjango School Lesson One Resources
 
+[Django Project Website]
+(http://djangoproject.com/)
+
 [List of HTTP Header Fields]
 (https://en.wikipedia.org/wiki/List_of_HTTP_headers)
 

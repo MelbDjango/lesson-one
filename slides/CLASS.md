@@ -1,7 +1,14 @@
 ### MelbDjango School Lesson One
 
-Introduction to MelbDjango School  
+Introduction to MelbDjango School
+
 What are web applications?
+
+---
+
+### wifi
+
+Common Code / cc&20!4@
 
 ---
 
@@ -171,14 +178,17 @@ User-Agent: HTTPie/0.9.2
   Server: nginx/1.6.2 (Ubuntu)
 ```
 
-  - And a Content-Type
-    - text/html, image/jpeg, application/json
+- And a Content-Type
+  - text/html, image/jpeg, application/json
 
 ---
 
-What is Django? Why Django?
+### What is Django? Why Django?
 
-# TODO: Suman
+- Django is a high level Python web framework
+- Fast, Stable, Secure, Mature, Scalable, Versatile
+- Django deals with HTTP Requests and Responses
+- http://djangoproject.com/
 
 ---
 
@@ -237,7 +247,7 @@ $ python3 get-pip.py
 - With pip it's super easy to install (and not even needed on Windows):
 
 ```
-$ [sudo] pip install -U virtualenv
+$ [sudo] pip3 install -U virtualenv
 ```
 
 ---
@@ -265,7 +275,10 @@ On Windows:
 ### Installing Django
 
 - After all that, installing Django is remarkably easy (just make sure your virtualenv is activated)
-  - `pip install -U Django`
+
+```
+$ pip install -U Django
+```
 
 - This will install the latest version of Django and adds the `django-admin` command to your system
 
@@ -385,3 +398,57 @@ For now, you'll only need some basic git commands:
 Let's get our hands dirty!
 
 https://github.com/melbdjango/lesson-one
+
+---
+
+### Set up our project
+
+```
+# Create our virtualenv
+$ python3 -m venv mds
+
+# Activate virtualenv
+$ source mds/bin/activate
+
+# Install Django
+$ pip install -U Django
+
+# Start our first project
+$ django-admin startproject lesson_one
+
+# Go in to the lesson_one directory
+$ cd lesson_one
+```
+
+---
+
+### The Django HttpRequest
+
+- A Django object that represents the HTTP Request
+- Django creates a HttpRequest object that gets passed to every view
+
+```
+ipdb> request.method
+'GET'
+ipdb> request.path
+'/'
+ipdb> request.GET
+<QueryDict: {'q': ['melbdjango']}>
+
+ipdb> request.META['HTTP_HOST']
+'localhost:8000'
+ipdb> request.META['HTTP_HOST']
+'localhost:8000'
+ipdb> request.META['HTTP_USER_AGENT']
+'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36'
+```
+
+(check out the documentation, you'll need this for your homework!)
+
+---
+
+### Django's HttpResponse
+
+- Unlike the HttpRequest, the HttpResponse object is your responsibility to create
+- Most of your views will return a HttpResponse or one of it's subclasses
+- Django gives you some shortcuts that can create the HttpResponse for you
