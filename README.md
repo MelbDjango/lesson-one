@@ -1,5 +1,7 @@
 # MelbDjango School Lesson One
 
+**Important:** Please take the [survey](https://docs.google.com/a/acommoncreative.com/forms/d/1VKqD1-aVsgztk19kdluNtFyTGiarbV9LgBFi2BwYT-g/viewform?c=0&w=1) if you came to the class today.
+
 Congratulations, you've made it to the git repository for our first lesson. Hopefully you also made it to the class
 and some of this makes sense to you.
 
