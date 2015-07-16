@@ -1,11 +1,11 @@
-MelbDjango School
-Lesson One
+### MelbDjango School Lesson One
 
-Introduction to MelbDjango School / What are web applications?
+Introduction to MelbDjango School  
+What are web applications?
 
 ---
 
-Course Basics
+### Course Basics
 
 - Beginner and intermediate Django topics
 - 8 weeks of classes
@@ -16,7 +16,7 @@ Course Basics
 
 ---
 
-Course Basics
+### Course Basics
 
 - Everything runs through Github
   - https://github.com/MelbDjango
@@ -26,9 +26,7 @@ Course Basics
 
 ---
 
-So, how do web apps work?
-
----
+### Today's Class
 
 - HTTP, Requests and Responses
 - Getting Python, virtualenv and Django installed
@@ -37,7 +35,11 @@ So, how do web apps work?
 
 ---
 
-HTTP: Hyper Text Transfer Protocol
+So, how do web apps work?
+
+---
+
+### HTTP: Hyper Text Transfer Protocol
 
 - The language we communicate with on the Internet
 - Defined in 1989 at CERN by Tim Berners-Lee and his team
@@ -45,19 +47,24 @@ HTTP: Hyper Text Transfer Protocol
 
 ---
 
-Request and Response
-
-When a user enters a domain in their browser the browser sends a HTTP Request
-
-The HTTP Request traverses the internet until it reached the desired server
-
-The server on the other end responds with a HTTP Response
-
-Our browser transforms the response into the visual representation of the website
+![](./img/tim-berners-lee.png)
 
 ---
 
-The HTTP Request
+### Request and Response
+
+- When a user enters a domain in their browser the browser sends a HTTP Request
+- The HTTP Request traverses the internet until it reaches the desired server
+- The server on the other end responds with a HTTP Response
+- Our browser transforms the response into the visual representation of the website
+
+---
+
+![](./img/search-request.png)
+
+---
+
+### The HTTP Request
 
 ```
   GET /melbdjango HTTP/1.1
@@ -68,14 +75,14 @@ The HTTP Request
   User-Agent: HTTPie/0.9.2
 ```
 
-There are seven (main) methods of HTTP Request:
+- There are seven (main) methods of HTTP Request:
   - GET, HEAD, PATCH, POST, PUT, OPTIONS, DELETE
   - Some of these are expected to change something on the server (POST, PATCH, PUT, DELETE)
   - And some of them aren't (GET, HEAD, OPTIONS)
 
 ---
 
-The HTTP Request Line
+### The HTTP Request Line
 
 ```
   GET /melbdjango HTTP/1.1
@@ -91,7 +98,7 @@ The HTTP Request Line
 
 ---
 
-The HTTP Headers
+### HTTP Headers
 
 - Key/value pairs that define our Request and Response
 - In our GET Request we can see:
@@ -103,7 +110,13 @@ The HTTP Headers
 
 ---
 
-The HTTP Response
+### HTTP Body
+
+# TODO: Brenton
+
+---
+
+### The HTTP Response
 
 ```
   HTTP/1.1 200 OK
@@ -116,13 +129,28 @@ The HTTP Response
 ```
 
 - HTTP Responses always have a status code
+  - (1xx Informational)
   - 2xx Successful
   - 3xx Redirection
   - 4xx Client Error
   - 5xx Server Error
 
-- And a Content-Type
-  - text/html, image/jpeg, application/json
+---
+
+### The HTTP Response
+
+```
+  HTTP/1.1 200 OK
+  Connection: keep-alive
+  Content-Encoding: gzip
+  Content-Type: text/html
+  Date: Mon, 13 Jul 2015 02:17:53 GMT
+  Last-Modified: Fri, 29 May 2015 03:33:24 GMT
+  Server: nginx/1.6.2 (Ubuntu)
+```
+
+  - And a Content-Type
+    - text/html, image/jpeg, application/json
 
 ---
 
@@ -130,7 +158,7 @@ What is Django? Why Django?
 
 ---
 
-Installing Python
+### Installing Python
 
 - We're going to use Python 3.4
 
@@ -141,13 +169,19 @@ Installing Python
     - Ubuntu/Debian: `sudo apt-get install python3.4`
     - Mac OSX: `brew install python3.4`
 
+---
+
+### Installing Python
+
 - Windows:
   - Head to python.org and download Python 3.4.3
   - https://www.python.org/downloads/release/python-343/
 
+- We can help! Hang back after class.
+
 ---
 
-pip: Installs Python Packages
+### pip: Installs Python Packages
 
 - Comes with Python 3
 - Install packages with `pip install -U <package-name>`
@@ -157,7 +191,7 @@ pip: Installs Python Packages
 
 ---
 
-Wait, I don't have pip!
+**Wait, I don't have pip!**
 
 That's okay, there's a nice easy installation script available:
 https://bootstrap.pypa.io/get-pip.py
@@ -171,7 +205,7 @@ python3 get-pip.py
 
 ---
 
-Installing virtualenv
+### Installing virtualenv
 
 - virtualenv creates isolated Python environments
 - Allows us to define consistent environments for development, testing and production
@@ -183,12 +217,13 @@ Installing virtualenv
 
 ---
 
-Creating your first virtualenv
+### Creating your first virtualenv
 
 ```
 cd <my-project-name>
 virtualenv -p python3 <my-project-name>
 source <my-project-name>/bin/activate
+
 ```
 
 ---

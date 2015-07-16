@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.http import HttpResponse
+
+
+def hello_world(request):
+    return HttpResponse('Hello World')
+
 
 urlpatterns = [
+    url(r'^$', hello_world),
     url(r'^admin/', include(admin.site.urls)),
 ]

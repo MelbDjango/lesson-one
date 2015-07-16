@@ -6,6 +6,17 @@ and some of this makes sense to you.
 Check our RESOURCES.md for some links we think you'll find handy.
 
 
+## Displaying the class slides
+
+Install reveal-md with npm and use that to display the class slides.
+
+```
+    npm install -g reveal-md
+
+    cd slides
+    reveal-md CLASS.md --theme melbdjango
+```
+
 ## Homework Checklist
 
 - [ ] [Fork this repository][gh-fork]

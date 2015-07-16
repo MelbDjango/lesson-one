@@ -1,5 +1,14 @@
 # MelbDjango School Lesson One Resources
 
+[List of HTTP Header Fields]
+(https://en.wikipedia.org/wiki/List_of_HTTP_headers)
+
+[List of HTTP Status Codes]
+(https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+
+[RCF 2324]
+(https://tools.ietf.org/html/rfc2324)
+
 [Jessica McKellar: How the internet works]
 (http://pyvideo.org/video/1677/how-the-internet-works)
 
