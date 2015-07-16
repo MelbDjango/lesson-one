@@ -23,7 +23,7 @@ def hello_world(request):
     if name:
         return HttpResponse('Hello %s' % name)
     else:
-        return HttpResponse('Hello World')
+        return HttpResponse('<form><input name="name"></form>')
 
 
 
