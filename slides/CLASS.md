@@ -68,14 +68,31 @@ So, how do web apps work?
 
 ---
 
+### The HTTP Request Line
+
+```
+  GET /melbdjango HTTP/1.1
+  Host: github.com
+  Accept: */*
+  Accept-Encoding: gzip, deflate
+  Connection: keep-alive
+  User-Agent: HTTPie/0.9.2
+```
+
+- URI: The resource you're requesting `/melbdjango`
+- Host: The server that we're request the resource from
+- Protocol: The version of HTTP you'd like to use `HTTP/1.1`
+
+---
+
 ### The HTTP Request
 
 ```
   GET /melbdjango HTTP/1.1
+  Host: github.com
   Accept: */*
   Accept-Encoding: gzip, deflate
   Connection: keep-alive
-  Host: github.com
   User-Agent: HTTPie/0.9.2
 ```
 
@@ -83,22 +100,6 @@ So, how do web apps work?
   - GET, HEAD, PATCH, POST, PUT, OPTIONS, DELETE
   - Some of these are expected to change something on the server (POST, PATCH, PUT, DELETE)
   - And some of them aren't (GET, HEAD, OPTIONS)
-
----
-
-### The HTTP Request Line
-
-```
-  GET /melbdjango HTTP/1.1
-  Accept: */*
-  Accept-Encoding: gzip, deflate
-  Connection: keep-alive
-  Host: github.com
-  User-Agent: HTTPie/0.9.2
-```
-
-- URI: The resource you're requesting `/melbdjango`
-- Protocol: The version of HTTP you'd like to use `HTTP/1.1`
 
 ---
 
@@ -116,7 +117,24 @@ So, how do web apps work?
 
 ### HTTP Body
 
-# TODO: Brenton
+```
+POST /melbdjango HTTP/1.1
+Accept: application/json
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 49
+Content-Type: application/json
+Host: github.com
+User-Agent: HTTPie/0.9.2
+
+{
+    "password": "commoncode",
+    "username": "brenton"
+}
+```
+
+- Separated by a line break
+- In this example it's JSON
 
 ---
 
@@ -159,6 +177,8 @@ So, how do web apps work?
 ---
 
 What is Django? Why Django?
+
+# TODO: Suman
 
 ---
 
@@ -203,8 +223,8 @@ https://bootstrap.pypa.io/get-pip.py
 Download that to a file and then run it with Python 3:
 
 ```
-curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
-python3 get-pip.py
+$ curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
+$ python3 get-pip.py
 ```
 
 ---
@@ -213,21 +233,31 @@ python3 get-pip.py
 
 - virtualenv creates isolated Python environments
 - Allows us to define consistent environments for development, testing and production
-- You'll want a new virtualenv for every Python project you development
+- You'll want a new virtualenv for every Python project you develop
+- With pip it's super easy to install (and not even needed on Windows):
 
 ```
-[sudo] pip install -U virtualenv
+$ [sudo] pip install -U virtualenv
 ```
 
 ---
 
 ### Creating your first virtualenv
 
-```
-cd <my-project-name>
-virtualenv -p python3 <my-project-name>
-source <my-project-name>/bin/activate
+On Mac / Linux:
 
+```
+$ cd <my-project-name>
+$ virtualenv -p python3 <my-project-name>
+$ source <my-project-name>/bin/activate
+```
+
+On Windows:
+
+```
+> cd <my-project-name>
+> C:\Python34\python -m venv <my-project-name>
+> <my-project-name>\Scripts\activate
 ```
 
 ---
@@ -237,14 +267,17 @@ source <my-project-name>/bin/activate
 - After all that, installing Django is remarkably easy (just make sure your virtualenv is activated)
   - `pip install -U Django`
 
-- This will install the latest version of Django and add the `django-admin` command
+- This will install the latest version of Django and adds the `django-admin` command to your system
 
 ---
 
 ### Creating your first Django project
 
 - Now that we've got Django installed, let's create our first project!
-  - `django-admin startproject <project-name>`
+
+```
+$ django-admin startproject <project-name>
+```
 
 ---
 
@@ -260,20 +293,62 @@ source <my-project-name>/bin/activate
       └── wsgi.py
 ```
 
-`./timetracker` is the name of your project and the **project workspace**, the `manage.py` file indicates that you're
+- `./timetracker` is the name of your project and the **project workspace**, the `manage.py` file indicates that you're
 at the root of your Django project.
-
-`./timetracker/timetracker` is your **project module**, Django imports your project settings from here.
-
-`./timetracker/manage.py` is a Python script used to manage your Django site.
-
-`./timetracker/settings.py` is where Django loads your project configuration from.
-
-`./timetracker/urls.py` is the default location
 
 ---
 
-Pick a text editor
+### Django Project Structure
+
+```
+  timetracker/
+  ├── manage.py
+  └── timetracker
+      ├── __init__.py
+      ├── settings.py
+      ├── urls.py
+      └── wsgi.py
+```
+
+- `./timetracker/timetracker` is your **project module**, Django imports your project settings from here.
+
+---
+
+### Django Project Structure
+
+```
+  timetracker/
+  ├── manage.py
+  └── timetracker
+      ├── __init__.py
+      ├── settings.py
+      ├── urls.py
+      └── wsgi.py
+```
+
+- `./timetracker/manage.py` is a Python script used to manage your Django site.
+
+---
+
+### Django Project Structure
+
+```
+  timetracker/
+  ├── manage.py
+  └── timetracker
+      ├── __init__.py
+      ├── settings.py
+      ├── urls.py
+      └── wsgi.py
+```
+
+- `./timetracker/settings.py` is where Django loads your project configuration from.
+
+- `./timetracker/urls.py` is the default location
+
+---
+
+### Pick a text editor
 
 - We're going to use a basic text editor in class
 - Check out atom.io, Sublime Text or Visual Studio Code (or vi / emacs if you're that way inclined)
@@ -281,10 +356,32 @@ Pick a text editor
 
 ---
 
-git Basics
+### git Basics
 
-For now, you'll only need four git commands:
-  - git pull
-  - git add
-  - git commit
-  - git push
+For now, you'll only need some basic git commands:
+
+- git init
+- git clone
+- git status
+- git add
+- git commit
+- git pull
+- git push
+
+---
+
+### Install and Learn git
+
+- Out of the scope of today, but you will need to understand git
+
+- Installation instructions for all platforms:
+  - https://help.github.com/articles/set-up-git/
+
+- Check out this tutorial on Github:
+  - https://try.github.io/levels/1/challenges/1
+
+---
+
+Let's get our hands dirty!
+
+https://github.com/melbdjango/lesson-one

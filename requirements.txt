@@ -1,0 +1,3 @@
+# MelbDjango School Requirements
+
+Django==1.8.3
