@@ -87,7 +87,7 @@ So, how do web apps work?
 ```
 
 - URI: The resource you're requesting `/melbdjango`
-- Host: The server that we're request the resource from
+- Host: The server that we're requesting the resource from
 - Protocol: The version of HTTP you'd like to use `HTTP/1.1`
 
 ---
@@ -141,7 +141,7 @@ User-Agent: HTTPie/0.9.2
 ```
 
 - Separated by a line break
-- In this example it's JSON
+- In this example our body is JSON
 
 ---
 
@@ -244,7 +244,7 @@ $ python3 get-pip.py
 - virtualenv creates isolated Python environments
 - Allows us to define consistent environments for development, testing and production
 - You'll want a new virtualenv for every Python project you develop
-- With pip it's super easy to install (and not even needed on Windows):
+- With pip its super easy to install (and not even needed on Windows):
 
 ```
 $ [sudo] pip3 install -U virtualenv
