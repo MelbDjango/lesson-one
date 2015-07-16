@@ -30,7 +30,7 @@ What are web applications?
 
 - HTTP, Requests and Responses
 - Getting Python, virtualenv and Django installed
-- Your first Django application
+- Our first Django project
 - Introduction to Git and Github
 
 ---
@@ -42,12 +42,16 @@ So, how do web apps work?
 ### HTTP: Hyper Text Transfer Protocol
 
 - The language we communicate with on the Internet
-- Defined in 1989 at CERN by Tim Berners-Lee and his team
+- Defined in 1989 by Sir Tim Berners-Lee and his team at CERN
 - Clients use HTTP to request resources from servers
 
 ---
 
 ![](./img/tim-berners-lee.png)
+
+---
+
+# TODO: Diagram of clients and servers
 
 ---
 
@@ -228,7 +232,7 @@ source <my-project-name>/bin/activate
 
 ---
 
-Installing Django
+### Installing Django
 
 - After all that, installing Django is remarkably easy (just make sure your virtualenv is activated)
   - `pip install -U Django`
@@ -237,14 +241,14 @@ Installing Django
 
 ---
 
-Creating your first Django project
+### Creating your first Django project
 
 - Now that we've got Django installed, let's create our first project!
   - `django-admin startproject <project-name>`
 
 ---
 
-Django Project Structure
+### Django Project Structure
 
 ```
   timetracker/
