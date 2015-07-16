@@ -58,10 +58,6 @@ So, how do web apps work?
 
 ---
 
-# TODO: Diagram of clients and servers
-
----
-
 ### Request and Response
 
 - When a user enters a domain in their browser the browser sends a HTTP Request
