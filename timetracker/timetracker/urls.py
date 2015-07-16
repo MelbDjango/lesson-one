@@ -19,7 +19,12 @@ from django.http import HttpResponse
 
 
 def hello_world(request):
-    return HttpResponse('Hello World')
+    name = request.GET.get('name')
+    if name:
+        return HttpResponse('Hello %s' % name)
+    else:
+        return HttpResponse('Hello World')
+
 
 
 urlpatterns = [
