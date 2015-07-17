@@ -24,7 +24,6 @@ def hello(request):
         return HttpResponse('hello {}!'.format(request.GET['name']))
     else:
         return render(request, 'page.html')
-        #return HttpResponse('hello World')
 
 urlpatterns = [
     url(r'^$', hello),
