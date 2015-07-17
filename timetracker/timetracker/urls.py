@@ -19,8 +19,7 @@ from django.http import HttpResponse
 
 
 def hello_world(request):
-    return HttpResponse('Hello World')
-
+    return HttpResponse('Hello ' + request.GET.get("name", "World"))
 
 urlpatterns = [
     url(r'^$', hello_world),
