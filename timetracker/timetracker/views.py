@@ -6,4 +6,7 @@ def name_form(request):
 
 def hello(request):
 	if 'name' in request.GET:
-		return HttpResponse("Hello " + request.GET['name'])
+		received = request.GET.get("name", "World")
+		if len(received) == 0:
+			received = "World"
+		return render(request, 'hello.html', {'name':received})

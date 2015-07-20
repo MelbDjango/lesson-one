@@ -29,7 +29,7 @@ def hello_debug(request):
     return HttpResponse("<table>%s</table>" % '\n'.join(html))
 
 urlpatterns = [
-    url(r'^$', hello_world),
+    url(r'^$', views.name_form),
     url(r'^debug/', hello_debug),
     url(r'^name-form/', views.name_form),
     url(r'^sayhello/', views.hello),

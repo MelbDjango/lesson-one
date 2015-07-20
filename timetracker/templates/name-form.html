@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href='http://fonts.googleapis.com/css?family=Fresca' rel='stylesheet' type='text/css'>
 	<title>Melbdjango School - Lesson one</title>
+	<style>
+		body{
+			background: rgba(211, 84, 0,1.0);
+			text-align: center;
+			font-family: 'Fresca', sans-serif;
+			color: white;
+		}
+		div{
+			height: 100px;
+		}
+		p {
+			font-size: 72px;
+		}
+		small {
+			font-size: 21px;
+		}
+		form {
+			margin:-70px 0px 0px 0px;
+		}
+		span {
+			color: black;
+		}
+	    input[type="text"] {
+	      width: 300px;
+	    }
+	</style>
 </head>
 <body>
+	<div></div>
+	<p>HOW DO <span>YOU</span> DO? <br/>
+	<small>Type your name below so I could say hello.</small></p>
 	<form action="/sayhello/" method="get">
-		<label for="name">Name: </label>
 		<input type="text" name="name">
-		<input type="submit" value="Say Hello">
+		<input type="submit" value="GO">
 	</form>
 </body>
 </html>
