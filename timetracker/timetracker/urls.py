@@ -15,11 +15,24 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 
 
 def hello_world(request):
-    return HttpResponse('Hello World')
+	visitorName = request.GET.get("name", False)
+	responseString = ""
+	if visitorName == False:
+		responseString = """
+							<form>
+								Enter your name here:<br>
+								<input type="text" name="name">
+								<input type="submit", value="Submit">
+							</form>
+						"""	
+	else:
+		responseString = "Hello, " + visitorName + "!"
+	
+	return HttpResponse(responseString)
 
 
 urlpatterns = [
