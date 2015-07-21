@@ -16,11 +16,47 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
+from django.views.decorators.http import require_http_methods
 
+# If there's no name, display a form asking for name.
+# This is the HTML for that form.
+form_page_html = """
+  <html>
+    <body>
+      <p>Hi, what's your name?</p>
 
+      <form method="GET">
+        <input type="text" name="name" />
+      </form>
+    </body>
+  <html>
+"""
+
+@require_http_methods(('GET',))
 def hello_world(request):
-    return HttpResponse('Hello World')
+    """
+    A view which asks for someone's name if there's no 'name'
+    in the request.GET dict, or says hello to 'name' if there is.
+    Only the GET method is supported.
+    """
 
+    # By checking for 'name' in the GET dict of the request
+    if 'name' in request.GET:
+        response_str = 'Hello {}'.format(request.GET['name'])
+    else:
+        response_str = form_page_html
+
+    """
+    # By fishing out 'name' from the GET dict of the request,
+    # and if it's missing, catch the exception and default to
+    # the form.
+    try:
+        response_str = 'Hello {}'.format(request.GET['name'])
+    except KeyError:
+        response_str = form_page_html
+    """
+
+    return HttpResponse(response_str)
 
 urlpatterns = [
     url(r'^$', hello_world),
