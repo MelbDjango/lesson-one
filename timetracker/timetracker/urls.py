@@ -19,7 +19,20 @@ from django.http import HttpResponse
 
 
 def hello_world(request):
-    return HttpResponse('Hello World')
+	name = request.GET.get("name", None)
+	if name:
+		res = "Welcome %r" % name
+	else:
+		res = 'No name... please enter one'
+	http_res = '<html><body>'
+	http_res += '<b>' + res + '</b>'
+	http_res += '<form method="get">'
+	http_res += '<input type="text" name="name">'
+	http_res += '<input type="submit" value="Submit"/>'
+	http_res += '</form></body></html>'
+	
+		
+	return HttpResponse(http_res)
 
 
 urlpatterns = [
