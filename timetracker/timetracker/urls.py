@@ -19,8 +19,19 @@ from django.http import HttpResponse
 
 
 def hello_world(request):
-    return HttpResponse('Hello World')
-
+    blank_html='''
+           <html>
+              <body>
+                 <form>
+                   Name:<input type="text" name="name" value=" ">
+                   <input type="submit" value="Hit Me !">
+                 </form>
+              </body>
+            </html>
+         '''
+    if "name" in request.GET:
+        return HttpResponse('%s, Welcome to Melbourne Django School' % request.GET.get("name"))
+    return HttpResponse(blank_html)
 
 urlpatterns = [
     url(r'^$', hello_world),
