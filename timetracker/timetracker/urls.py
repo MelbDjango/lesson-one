@@ -23,14 +23,14 @@ def hello_world(request):
            <html>
               <body>
                  <form>
-                   Name:<input type="text" name="name" value=" ">
-                   <input type="submit" value="Hit Me !">
+                   Name:<input type='text' name='name' value=' '>
+                   <input type='submit' value='Hit Me !'>
                  </form>
               </body>
             </html>
          '''
-    if "name" in request.GET:
-        return HttpResponse('%s, Welcome to Melbourne Django School' % request.GET.get("name"))
+    if 'name' in request.GET:
+        return HttpResponse('{}, Welcome to Melbourne Django School'.format(request.GET.get('name')))
     return HttpResponse(blank_html)
 
 urlpatterns = [
