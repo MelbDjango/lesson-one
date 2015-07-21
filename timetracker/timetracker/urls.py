@@ -1,4 +1,4 @@
-"""timetracker URL Configuration
+"""kittens URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -16,12 +16,22 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
+import random
 
+def hello (request):
 
-def hello_world(request):
-    return HttpResponse("Hello world")
+    name=request.GET.get("name","default")
+    return HttpResponse('<b>hello</b> '+name)
 
+def displayform (request):
+    return HttpResponse("""<form action="hello">
+First name:<br>
+<input type="text" name="name" value="Noob">
+<br>
+<input type="submit" value="Submit">
+</form> """)
 urlpatterns = [
-    url(r'^$', hello_world),
+    url(r'^$', displayform),
+    url(r'^hello$', hello),
     url(r'^admin/', include(admin.site.urls)),
 ]
