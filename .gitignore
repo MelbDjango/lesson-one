@@ -55,4 +55,8 @@ docs/_build/
 # PyBuilder
 target/
 
+.DS_Store
 
+timetracker/mds/*
+timetracker/.DS_Store
+timetracker/db.sqlite3
