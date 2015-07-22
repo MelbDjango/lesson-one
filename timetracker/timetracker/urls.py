@@ -16,13 +16,22 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
-
+from timetracker import views
 
 def hello_world(request):
-    return HttpResponse('Hello World')
+    return HttpResponse('Hello ' + request.GET.get("name", "World"))
 
+def hello_debug(request):
+    values = request.META.items()
+    html = []
+    for k, v in values:
+        html.append('<tr><td>%s</td><td>%s</td></tr>' % (k,v))
+    return HttpResponse("<table>%s</table>" % '\n'.join(html))
 
 urlpatterns = [
-    url(r'^$', hello_world),
+    url(r'^$', views.name_form),
+    url(r'^debug/', hello_debug),
+    url(r'^name-form/', views.name_form),
+    url(r'^sayhello/', views.hello),
     url(r'^admin/', include(admin.site.urls)),
 ]
