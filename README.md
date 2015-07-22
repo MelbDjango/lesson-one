@@ -21,13 +21,13 @@ Install reveal-md with npm and use that to display the class slides.
 
 ## Homework Checklist
 
-- [ ] [Fork this repository][gh-fork]
-- [ ] Clone the repo to your own machine
-- [ ] Create a virtualenv for our MelbDjango School project
-- [ ] Install our requirements and use `python manage.py runserver` to test the application
-- [ ] Update the view we created in class to accept a `name` GET parameter and say hello to that person.
+- [x] [Fork this repository][gh-fork]
+- [x] Clone the repo to your own machine
+- [x] Create a virtualenv for our MelbDjango School project
+- [x] Install our requirements and use `python manage.py runserver` to test the application
+- [x] Update the view we created in class to accept a `name` GET parameter and say hello to that person.
       You'll need to access the [request.GET][dj-request-response] object.
-- [ ] A step further - Add a `<form>` and `<input>` to let the user submit the name to be displayed
+- [x] A step further - Add a `<form>` and `<input>` to let the user submit the name to be displayed
 
 You'll need to be familiar with HTML and forms to do the last step above – check out the [MDN Introduction to HTML][mdn-html]
 to understand the basics.
