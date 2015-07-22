@@ -18,11 +18,35 @@ from django.contrib import admin
 from django.http import HttpResponse
 
 
-def hello_world(request):
-    return HttpResponse('Hello World')
+def hello_world(request, name):
+   name = request.GET.get('name')
+   #
+   # Start of corner cutting
+   #
+   ghetto_template = "<html>\n\
+                      <head>\n\
+                        <title>GaaS - Greeting as a Service</title>\n\
+                      </head>\n\
+                      <body>\n\
+                        <h1>Hello {0}!</h1>\n\
+                        <br><br>\n\
+                        Enter your name to receive a special prize:\n\
+                        <br>\n\
+                        <form>\n\
+                         <input type='text' name='name'><br>\n\
+                         <input type='submit' value='Submit'>\n\
+                        </form>\n\
+                      </body>\n\
+                      </html>"
+   #
+   # End of corner cutting
+   # 
+   if name:
+      return HttpResponse(ghetto_template.format(name))
 
+   return HttpResponse(ghetto_template.format("world"))
 
 urlpatterns = [
-    url(r'^$', hello_world),
+    url(r'^(?P<name>)$', hello_world),
     url(r'^admin/', include(admin.site.urls)),
 ]
