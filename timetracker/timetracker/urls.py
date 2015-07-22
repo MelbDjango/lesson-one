@@ -17,12 +17,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
 
+from django.shortcuts import render
 
-def hello_world(request):
-    return HttpResponse('Hello World')
-
+def hello(request):
+    if 'name' in request.GET:
+        return HttpResponse('hello {}!'.format(request.GET['name']))
+    else:
+        return render(request, 'page.html')
 
 urlpatterns = [
-    url(r'^$', hello_world),
+    url(r'^$', hello),
     url(r'^admin/', include(admin.site.urls)),
 ]
