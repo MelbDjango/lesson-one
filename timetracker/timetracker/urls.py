@@ -16,13 +16,46 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
+from django.template import Template,Context
+from django.views.decorators.csrf import csrf_exempt
 
+raw_template = """<html><body>
+                    <p>Hello {{url_name}}.</p>
+                    {% ifequal req_mode 'GET' %}
+                      <form action="" method="POST">
+                        <p>Name: <input type="text" name="rname" rname="" size="10"></p>
+                        <p><input type="Submit" value="Submit"></p>
+                      </form>
+                    {% else %}
+                      <p> login name: {{postname}}.</p>
+                    {% endifequal %}
+                  </body> </html>"""
 
 def hello_world(request):
     return HttpResponse('Hello World')
 
-
+@csrf_exempt
+def hello_any(request,u_name):
+    t = Template(raw_template)
+    if request.method == 'GET':
+        #print(u_name)
+        c    = Context({'url_name':u_name,
+                        'req_mode':request.method})
+        thtml=t.render(c)
+        #print(thtml.__str__)
+    elif request.method == 'POST':
+        postName = request.POST.get('rname')
+        #print(postName)
+        c    = Context({'url_name':u_name,
+                        'req_mode':request.method,
+                        'postname':postName})
+        thtml=t.render(c)
+        #thtml='got it'
+        
+    return HttpResponse(thtml)
+                       
 urlpatterns = [
     url(r'^$', hello_world),
+    url(r'([^/]+)',hello_any),
     url(r'^admin/', include(admin.site.urls)),
 ]
