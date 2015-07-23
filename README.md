@@ -8,17 +8,6 @@ and some of this makes sense to you.
 Check our RESOURCES.md for some links we think you'll find handy.
 
 
-## Displaying the class slides
-
-Install reveal-md with npm and use that to display the class slides.
-
-```
-    npm install -g reveal-md
-
-    cd slides
-    reveal-md CLASS.md --theme melbdjango
-```
-
 ## Homework Checklist
 
 - [ ] [Fork this repository][gh-fork]
@@ -37,6 +26,23 @@ your work before Wednesday evening we'll give you feedback before the next class
 
 If you'd like help, make a Pull Request with your incomplete work and ask a question to @darrenfrenkel, @sesh or
 @funkybob.
+
+## Displaying the class slides
+
+Install reveal-md with npm and use that to display the class slides.
+
+```
+    npm install -g reveal-md
+```
+
+From within the `lesson-one` repo:
+
+```
+    npm install -g reveal-md
+
+    cd slides
+    reveal-md CLASS.md --theme melbdjango
+```
 
 [gh-fork]: https://help.github.com/articles/fork-a-repo/
 [gh-pr]: https://help.github.com/articles/using-pull-requests/
