@@ -16,10 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
+from django.shortcuts import render
+from .forms import NameForm
 
 
 def hello_world(request):
-    return HttpResponse('Hello World')
+    # How is the request module understood if it's not imported above?
+    form = NameForm(request.GET)
+    name = request.GET.get('name', '')
+    return render(request, 'timetracker/index.html', {'form': form, 'name': name})
 
 
 urlpatterns = [
