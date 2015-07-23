@@ -23,21 +23,22 @@ def hello_world(request, name):
    #
    # Start of corner cutting
    #
-   ghetto_template = "<html>\n\
-                      <head>\n\
-                        <title>GaaS - Greeting as a Service</title>\n\
-                      </head>\n\
-                      <body>\n\
-                        <h1>Hello {0}!</h1>\n\
-                        <br><br>\n\
-                        Enter your name to receive a special prize:\n\
-                        <br>\n\
-                        <form>\n\
-                         <input type='text' name='name'><br>\n\
-                         <input type='submit' value='Submit'>\n\
-                        </form>\n\
-                      </body>\n\
-                      </html>"
+   ghetto_template = """
+    <html>
+    <head>
+      <title>GaaS - Greeting as a Service</title>
+    </head>
+    <body>
+      <h1>Hello {0}!</h1>
+      <br><br>
+      Enter your name to receive a special prize:
+      <br>
+      <form>
+       <input type='text' name='name'><br>
+       <input type='submit' value='Submit'>
+      </form>
+    </body>
+    </html>"""
    #
    # End of corner cutting
    # 
