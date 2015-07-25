@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.http import HttpResponse
 
 
-def hello_world(request, name):
+def hello_world(request):
    name = request.GET.get('name')
    #
    # Start of corner cutting
@@ -29,7 +29,7 @@ def hello_world(request, name):
       <title>GaaS - Greeting as a Service</title>
     </head>
     <body>
-      <h1>Hello {0}!</h1>
+      <h1>Hello {}!</h1>
       <br><br>
       Enter your name to receive a special prize:
       <br>
@@ -48,6 +48,6 @@ def hello_world(request, name):
    return HttpResponse(ghetto_template.format("world"))
 
 urlpatterns = [
-    url(r'^(?P<name>)$', hello_world),
+    url(r'^$', hello_world),
     url(r'^admin/', include(admin.site.urls)),
 ]
