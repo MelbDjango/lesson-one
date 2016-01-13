@@ -76,10 +76,6 @@ So, how do web apps work?
 ```
   GET /melbdjango HTTP/1.1
   Host: github.com
-  Accept: */*
-  Accept-Encoding: gzip, deflate
-  Connection: keep-alive
-  User-Agent: HTTPie/0.9.2
 ```
 
 - URI: The resource you're requesting `/melbdjango`
@@ -93,10 +89,6 @@ So, how do web apps work?
 ```
   GET /melbdjango HTTP/1.1
   Host: github.com
-  Accept: */*
-  Accept-Encoding: gzip, deflate
-  Connection: keep-alive
-  User-Agent: HTTPie/0.9.2
 ```
 
 - There are seven (main) methods of HTTP Request:
@@ -108,12 +100,20 @@ So, how do web apps work?
 
 ### HTTP Headers
 
+```
+  GET /melbdjango HTTP/1.1
+  Host: github.com
+  Accept: */*
+  Accept-Encoding: gzip, deflate
+  Connection: keep-alive
+  User-Agent: HTTPie/0.9.2
+```
+
 - Key/value pairs that define our Request and Response
 - In our GET Request we can see:
   - `Accept` - defines what types we're happy to accept in the response
   - `Accept-Encoding` - the encodings (normally, compression) we're able to handle
   - `Connection` - control options for our connection to the server
-  - `Host` - domain name of the server
   - `User-Agent` - a string that tells the server information about our client
 
 ---
@@ -204,8 +204,8 @@ User-Agent: HTTPie/0.9.2
 ### Installing Python
 
 - Windows:
-  - Head to python.org and download Python 3.4.3
-  - https://www.python.org/downloads/release/python-343/
+  - Head to python.org and download Python 3.4.4
+  - https://www.python.org/downloads/release/python-344/
 
 - We can help! Hang back after class.
 
@@ -229,8 +229,7 @@ https://bootstrap.pypa.io/get-pip.py
 Download that to a file and then run it with Python 3:
 
 ```
-$ curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
-$ python3 get-pip.py
+$ curl https://bootstrap.pypa.io/get-pip.py | python3
 ```
 
 ---
@@ -302,8 +301,7 @@ $ django-admin startproject <project-name>
       └── wsgi.py
 ```
 
-- `./timetracker` is the name of your project and the **project workspace**, the `manage.py` file indicates that you're
-at the root of your Django project.
+- `./timetracker` is the name of your project and the **project workspace**, the `manage.py` file indicates that you're at the root of your Django project.
 
 ---
 
@@ -353,7 +351,7 @@ at the root of your Django project.
 
 - `./timetracker/settings.py` is where Django loads your project configuration from.
 
-- `./timetracker/urls.py` is the default location
+- `./timetracker/urls.py` is the default location for all URLs.
 
 ---
 
@@ -418,7 +416,7 @@ $ cd lesson_one
 
 ---
 
-### The Django HttpRequest
+### The Django `HttpRequest`
 
 - A Django object that represents the HTTP Request
 - Django creates a HttpRequest object that gets passed to every view
@@ -431,8 +429,6 @@ ipdb> request.path
 ipdb> request.GET
 <QueryDict: {'q': ['melbdjango']}>
 
-ipdb> request.META['HTTP_HOST']
-'localhost:8000'
 ipdb> request.META['HTTP_HOST']
 'localhost:8000'
 ipdb> request.META['HTTP_USER_AGENT']
